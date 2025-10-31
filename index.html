@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SCN | Calculadora de Crecimiento</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>SCN – Calculadora de Crecimiento</h1>
+    <p class="subtitle">
+      Basada en tasa media anual de crecimiento (6,2%) y banda de tolerancia ±10,74 mm (RMSE).<br/>
+      Uso docente. No reemplaza el juicio clínico.
+    </p>
+
+    <form id="form">
+      <div class="field">
+        <label for="sizePrev">Tamaño previo (mm)</label>
+        <input id="sizePrev" type="text" inputmode="decimal" placeholder="Ej. 31,0" required />
+      </div>
+
+      <div class="field">
+        <label for="months">Intervalo (meses)</label>
+        <input id="months" type="number" min="1" step="1" value="12" required />
+      </div>
+
+      <div class="field">
+        <label for="observed">Tamaño observado (mm) <span class="muted">(opcional)</span></label>
+        <input id="observed" type="text" inputmode="decimal" placeholder="Ej. 45,0" />
+      </div>
+
+      <button id="calcBtn" type="submit">Calcular</button>
+      <button id="clearBtn" type="button" class="secondary">Limpiar</button>
+    </form>
+
+    <section id="results" class="card hidden">
+      <h2>Resultados</h2>
+      <ul id="list"></ul>
+    </section>
+
+    <section id="alerts" class="card hidden">
+      <h2>Alertas y reglas orientativas</h2>
+      <ul id="alertList"></ul>
+    </section>
+
+    <p class="footnote">
+      Créditos: basado en datos publicados (Chang et al., <em>Pancreatology</em>, 2024). Implementación simplificada (tasa media).
+    </p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
