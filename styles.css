@@ -55,3 +55,13 @@ ul{margin:0; padding-left:18px}
   margin-top: 12px;
   font-size: 0.95rem;
 }
+.extra h3 { margin-top: 18px; margin-bottom: 6px; font-weight: 700; }
+.note {
+  background: #eef2ff; color: #1e3a8a; padding: 10px 12px;
+  border-radius: 8px; margin-top: 12px; font-size: 0.95rem;
+}
+.note-light {
+  background: #f8fafc; border-left: 4px solid #3b82f6; color: #334155;
+  padding: 10px 12px; border-radius: 6px; font-size: .92rem; margin-top: 10px; line-height: 1.5;
+}
+.hidden { display: none; }
