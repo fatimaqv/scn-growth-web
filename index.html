@@ -14,10 +14,10 @@
       Uso docente. No reemplaza el juicio clínico.
     </p>
 
-    <form id="form">
+    <form id="form" novalidate>
       <div class="field">
         <label for="sizePrev">Tamaño previo (mm)</label>
-        <input id="sizePrev" type="text" inputmode="decimal" placeholder="Ej. 31,0" required />
+        <input id="sizePrev" type="text" inputmode="decimal" placeholder="Ej. 31,0" autocomplete="off" required />
       </div>
 
       <div class="field">
@@ -27,40 +27,52 @@
 
       <div class="field">
         <label for="observed">Tamaño observado (mm) <span class="muted">(opcional)</span></label>
-        <input id="observed" type="text" inputmode="decimal" placeholder="Ej. 45,0" />
+        <input id="observed" type="text" inputmode="decimal" placeholder="Ej. 45,0" autocomplete="off" />
       </div>
 
       <button id="calcBtn" type="submit">Calcular</button>
       <button id="clearBtn" type="button" class="secondary">Limpiar</button>
+
+      <!-- Aviso si el JS no cargó -->
+      <p id="jsWarning" class="note-light hidden">Parece que el script no cargó. Refresca con Ctrl/Cmd+F5 o verifica que <code>app.js</code> exista en la raíz del repo.</p>
     </form>
 
     <section id="results" class="card hidden">
       <h2>Resultados</h2>
       <ul id="list"></ul>
+      <p class="note-light">
+        <em>El RMSE (Root Mean Square Error) indica el margen estadístico de variación esperado entre el tamaño predicho y el observado. Valores dentro de ±RMSE se consideran dentro del rango normal de crecimiento.</em>
+      </p>
     </section>
 
-  <section id="alerts" class="card hidden">
-  <h2>Reglas orientativas y alertas</h2>
-  <ul id="alertList"></ul>
+    <section id="alerts" class="card hidden">
+      <h2>Reglas orientativas y alertas</h2>
+      <ul id="alertList"></ul>
 
-  <div class="extra">
-    <h3>Alertas</h3>
-    <ul>
-      <li>Crecimiento mayor al esperado (por encima de +RMSE). Reevaluar y discutir en equipo multidisciplinario.</li>
-    </ul>
+      <div class="extra">
+        <h3>Alertas</h3>
+        <ul>
+          <li>Crecimiento mayor al esperado (por encima de +RMSE). Reevaluar y discutir en equipo multidisciplinario.</li>
+        </ul>
 
-    <h3>Reglas clínicas orientativas</h3>
-    <ul>
-      <li>Tamaño ≥ 40 mm (4 cm): considerar discusión sobre riesgos locales y opción quirúrgica si hay crecimiento acelerado o síntomas.</li>
-      <li>SCN en cabeza/uncinado con síntomas: evaluar obstrucción biliar/pancreática o compresión venosa.</li>
-    </ul>
+        <h3>Reglas clínicas orientativas</h3>
+        <ul>
+          <li>Tamaño ≥ 40 mm (4 cm): considerar discusión sobre riesgos locales y opción quirúrgica si hay crecimiento acelerado o síntomas.</li>
+          <li>SCN en cabeza/uncinado con síntomas: evaluar obstrucción biliar/pancreática o compresión venosa.</li>
+        </ul>
 
-    <p><strong>Sugerencia de intervalo de seguimiento:</strong> Control de imagen en 6–12 meses o antes según clínica.</p>
+        <p><strong>Sugerencia de intervalo de seguimiento:</strong> Control de imagen en 6–12 meses o antes según clínica.</p>
 
-    <p class="note">
-      <strong>Límites:</strong> medición bidimensional, variabilidad entre CT y MRI, y esta es una aproximación educativa sin validación externa publicada de esta forma simplificada.
-    </p>
+        <p class="note">
+          <strong>Límites:</strong> medición bidimensional, variabilidad entre CT y MRI, y esta es una aproximación educativa sin validación externa publicada de esta forma simplificada.
+        </p>
 
-    <p><strong>Créditos:</strong> Basado en datos publicados (Chang et al., <em>Pancreatology</em> 2024).</p>
-  </div>
-</section>
+        <p><strong>Créditos:</strong> Basado en datos publicados (Chang et al., <em>Pancreatology</em> 2024).</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Cargar JS al final, con defer y cache-buster -->
+  <script defer src="app.js?v=1"></script>
+</body>
+</html>
