@@ -42,3 +42,16 @@ ul{margin:0; padding-left:18px}
 .ok{color:#0f766e; font-weight:600}
 .warn{color:#b45309; font-weight:700}
 .risk{color:#b91c1c; font-weight:800}
+.extra h3 {
+  margin-top: 18px;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+.note {
+  background: #eef2ff;
+  color: #1e3a8a;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-top: 12px;
+  font-size: 0.95rem;
+}
